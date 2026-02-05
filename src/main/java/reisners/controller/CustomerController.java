@@ -9,7 +9,7 @@ import reisners.assembler.CustomerModelAssembler;
 import reisners.assembler.OrderModelAssembler;
 import reisners.model.Customer;
 import reisners.model.Order;
-import reisners.repository.InMemoryRepository;
+import reisners.service.BackendService;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -22,11 +22,11 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 @RequestMapping("/customers")
 public class CustomerController {
 
-    private final InMemoryRepository repository;
+    private final BackendService repository;
     private final CustomerModelAssembler assembler;
     private final OrderModelAssembler orderAssembler;
 
-    public CustomerController(InMemoryRepository repository, 
+    public CustomerController(BackendService repository,
                               CustomerModelAssembler assembler,
                               OrderModelAssembler orderAssembler) {
         this.repository = repository;

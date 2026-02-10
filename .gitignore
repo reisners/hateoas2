@@ -40,3 +40,4 @@ build/
 /frontend/src/main/web/.npm-cache/
 /frontend/src/main/web/node_modules/
 /frontend/src/main/web/dist/
+/.idea/

@@ -1,4 +1,4 @@
-package reisners.repository;
+package reisners.service;
 
 import org.springframework.stereotype.Repository;
 import reisners.model.Customer;
@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Collectors;
 
 @Repository
-public class InMemoryRepository {
+public class BackendService {
     private final ConcurrentHashMap<Long, Customer> customers = new ConcurrentHashMap<>();
     private final ConcurrentHashMap<Long, Order> orders = new ConcurrentHashMap<>();
     private final AtomicLong customerIdGenerator = new AtomicLong(1);

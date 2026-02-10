@@ -5,11 +5,12 @@ import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.IanaLinkRelations;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import reisners.assembler.CustomerModelAssembler;
 import reisners.assembler.OrderModelAssembler;
 import reisners.model.Customer;
 import reisners.model.Order;
-import reisners.repository.InMemoryRepository;
+import reisners.service.BackendService;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -18,15 +19,16 @@ import java.util.stream.Collectors;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
+@CrossOrigin(origins = "http://localhost:8081")
 @RestController
 @RequestMapping("/customers")
 public class CustomerController {
 
-    private final InMemoryRepository repository;
+    private final BackendService repository;
     private final CustomerModelAssembler assembler;
     private final OrderModelAssembler orderAssembler;
 
-    public CustomerController(InMemoryRepository repository, 
+    public CustomerController(BackendService repository,
                               CustomerModelAssembler assembler,
                               OrderModelAssembler orderAssembler) {
         this.repository = repository;

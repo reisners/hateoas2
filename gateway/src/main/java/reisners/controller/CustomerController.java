@@ -5,6 +5,7 @@ import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.IanaLinkRelations;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import reisners.assembler.CustomerModelAssembler;
 import reisners.assembler.OrderModelAssembler;
 import reisners.model.Customer;
@@ -18,6 +19,7 @@ import java.util.stream.Collectors;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
+@CrossOrigin(origins = "http://localhost:8081")
 @RestController
 @RequestMapping("/customers")
 public class CustomerController {
